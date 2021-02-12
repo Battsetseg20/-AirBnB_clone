@@ -10,17 +10,29 @@ import json
 class BaseModel():
     """ Initializing the attributes and methods"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
-        Public instance attributes id, created_at and updated_at
-        id: string assigned with uuid when an instance is created
-        created_at: datetime - assigned when an instance is created
-        updated_at: datetime - assigned when instance is created and
-        it will be updated every time you change yout object
+        *args won't be used
+
+        if **kwargs is not empty:
+        - each key of this dictionary is an attribute name
+        - each value of this dictionary is the value of this attribute name
+
+        Otherwise: id and created_at assigned when instance is created
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now(tz=None)
-        self.updated_at = datetime.now(tz=None)
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    self.__dict__[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    if key != '__class__':
+                        self.__dict__[key] = value
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now(tz=None)
+            self.updated_at = datetime.now(tz=None)
+
 
     def __str__(self):
         """
