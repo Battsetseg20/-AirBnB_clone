@@ -5,6 +5,7 @@ Module base_model containing the class BaseModel
 import uuid
 from datetime import datetime
 import json
+import models
 
 
 class BaseModel():
@@ -24,7 +25,8 @@ class BaseModel():
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
-                    self.__dict__[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.__dict__[key] = datetime.strptime(
+                        value, "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     if key != '__class__':
                         self.__dict__[key] = value
@@ -32,6 +34,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now(tz=None)
             self.updated_at = datetime.now(tz=None)
+            models.storage.new(self)
 
 
     def __str__(self):
@@ -46,7 +49,8 @@ class BaseModel():
         """
         Updates  updated_at with current datetime
         """
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.now(tz=None)
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -55,7 +59,7 @@ class BaseModel():
         - Add a  key __class__ to this dict with the class name of the object
         - created_at and updated_at coverted to string object in ISO format
         """
-        my_dict = self.__dict__
+        my_dict = self.__dict__.copy()
         my_dict['__class__'] = self.__class__.__name__
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['updated_at'] = self.updated_at.isoformat()
