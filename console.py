@@ -111,26 +111,24 @@ class HBNBCommand(cmd.Cmd):
         Syntax: update <class name> <id> <attribute name> "<attribute value>"
         Saves the change into JSON file
         """
-        parsed_line = shlex.split(*line)
-        if not parsed_line:
+        parsed = shlex.split(*line)
+        if not parsed:
             print("** class name missing **")
-        elif parsed_line[0] not in classes:
+        elif parsed[0] not in classes:
             print("** class doesn't exist **")
-        elif len(parsed_line) == 1:
+        elif len(parsed) == 1:
             print("** instance id missing **")
-        elif len(parsed_line) == 2:
-            name_id = parsed_line[0] + "." + parsed_line[1]
-            if name_id not in models.storage.all():
-                print("** no instance found **")
-            else:
-                print("** attribute name missing **")
-        elif len(parsed_line) == 3:
+        elif (parsed[0] + "." + parsed[1]) not in models.storage.all():
+            print("** no instance found **")
+        elif len(parsed) == 2:
+            print("** attribute name missing **")
+        elif len(parsed) == 3:
             print("** value missing **")
         else:
-            name_id = parsed_line[0] + "." + parsed_line[1]
+            name_id = parsed[0] + "." + parsed[1]
             obj = models.storage.all()[name_id]
-            name_attrib = parsed_line[2]
-            value_attrib = parsed_line[3]
+            name_attrib = parsed[2]
+            value_attrib = parsed[3]
             setattr(obj, name_attrib, value_attrib)
             models.storage.save()
 
