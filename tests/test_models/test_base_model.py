@@ -46,3 +46,11 @@ class TestBaseModel(unittest.TestCase):
         updated = datetime.now()
         self.assertFalse(time == updated)
 
+    def test_to_dict(self):
+        """Test for to_dict method"""
+        base1 = BaseModel()
+        dict1 = base1.to_dict()
+        self.assertEqual(dict1['created_at'], base1.created_at.isoformat())
+        self.assertEqual(dict1['updated_at'], base1.updated_at.isoformat())
+        self.assertEqual(dict1['__class__'], 'BaseModel')
+
