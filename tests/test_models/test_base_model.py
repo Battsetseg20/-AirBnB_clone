@@ -34,6 +34,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(self.base1, 'updated_at'))
         self.assertEqual(type(self.base1.updated_at), type(datetime.now()))
 
-    
+    def test_created_at(self):
+        """Test for attribute created_at"""
+        self.assertTrue(hasattr(self.base1, "created_at"))
+        self.assertEqual(type(self.base1.created_at), type(datetime.now()))
 
-    
+    def test_save(self):
+        """test for save method"""
+        self.base1.save()
+        time = self.base1.updated_at
+        updated = datetime.now()
+        self.assertFalse(time == updated)
+
