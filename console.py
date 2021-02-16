@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(parsed_line) == 1:
             print("** instance id missing **")
-        elif name_id not in models.storage.all():
+        elif name_id not in models.storage.all().keys():
             print("** no instance found **")
         elif len(parsed_line) == 2:
             print("** attribute name missing **")
