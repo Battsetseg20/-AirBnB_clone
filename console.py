@@ -126,16 +126,10 @@ class HBNBCommand(cmd.Cmd):
         elif len(parsed_line) == 3:
             print("** value missing **")
         else:
+            obj = models.storage.all()[name_id]
             name_attrib = parsed_line[2]
-            value_attrib = parsed_line[3]
-            for key, value in models.storage.all().items():
-                if key == name_id:
-                    if type(value_attrib) is int:
-                        setattr(value, name_attrib, int(value_attrib))
-                    elif type(value_attrib) is float:
-                        setattr(value, name_attrib, int(value_attrib))
-                    else:
-                        setattr(value, name_attrib, value_attrib)
+            value_attrib = parsed_line[3].replace('"', "")
+            setattr(obj, name_attrib, value_attrib)
             models.storage.save()
 
 if __name__ == '__main__':
