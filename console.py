@@ -40,12 +40,13 @@ class HBNBCommand(cmd.Cmd):
         parsed_line = shlex.split(*line)
         if parsed_line is None or len(parsed_line) == 0:
             print("** class name missing **")
-        elif parsed_line[0] in classes:
+        elif parsed_line[0] not in classes:
+            print("** class doesn't exist **")
+        else:
             new_instance = classes[parsed_line[0]]()
             print(new_instance.id)
-            new_instance.save()
-        else:
-            print("** class doesn't exist **")
+            models.storage.save()
+
 
     def do_show(self, *line):
         """
@@ -119,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(parsed_line) == 1:
             print("** instance id missing **")
-        elif name_id not in models.storage.all().keys():
+        elif name_id not in models.storage.all():
             print("** no instance found **")
         elif len(parsed_line) == 2:
             print("** attribute name missing **")
