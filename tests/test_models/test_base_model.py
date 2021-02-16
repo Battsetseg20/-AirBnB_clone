@@ -21,8 +21,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(isinstance(self.base1, BaseModel))
 
     def test_instance_type(self):
-       " ""Checks the instance type"""
-       self.assertEqual(type(self.base1), BaseModel)
+        """Checks the instance type"""
+        self.assertEqual(type(self.base1), BaseModel)
 
     def test_uuid(self):
         """Test for id"""
@@ -59,4 +59,3 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(dict1['created_at'], base1.created_at.isoformat())
         self.assertEqual(dict1['updated_at'], base1.updated_at.isoformat())
         self.assertEqual(dict1['__class__'], 'BaseModel')
-
