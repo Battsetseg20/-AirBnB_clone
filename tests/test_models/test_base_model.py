@@ -39,6 +39,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(self.base1, "created_at"))
         self.assertEqual(type(self.base1.created_at), type(datetime.now()))
 
+    def test_str(self):
+        """Test for __str__ method"""
+        base1 = BaseModel()
+        expected = "[BaseModel] ({}) {}".format(base1.id, base1.__dict__)
+        self.assertEqual(expected, str(base1))
+
     def test_save(self):
         """test for save method"""
         self.base1.save()
