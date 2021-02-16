@@ -4,14 +4,14 @@ Module contains a class HBNBCommand
 which is the entry point of the command interpreter
 """
 import cmd
-from models.base_model import BaseModel
 import models
 import json
 import shlex
+from models.base_model import BaseModel
+from models.user import User
 
 
 classes = {'BaseModel': BaseModel}
-
 
 class HBNBCommand(cmd.Cmd):
     """
