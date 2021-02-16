@@ -18,11 +18,22 @@ class TestBaseModel(unittest.TestCase):
 
     def test_intance(self):
         """Checks if class is instantiated"""
-        self.assertIsInstance(self.base1, BaseModel)
+        self.assertTrue(isinstance(self.base1, BaseModel))
+
+    def test_instance_type(self):
+       " ""Checks the instance type"""
+       self.assertEqual(type(self.base1), BaseModel)
 
     def test_uuid(self):
         """Test for id"""
         self.assertTrue(hasattr(self.base1, "id"))
         self.assertEqual(type(self.base1.id), str)
+
+    def test_updated_at(self):
+        """Test for attribute updated_at"""
+        self.assertTrue(hasattr(self.base1, 'updated_at'))
+        self.assertEqual(type(self.base1.updated_at), type(datetime.now()))
+
+    
 
     
