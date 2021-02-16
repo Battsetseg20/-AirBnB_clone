@@ -47,7 +47,6 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
             models.storage.save()
 
-
     def do_show(self, *line):
         """
         Prints str representation of an instance
@@ -113,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         Saves the change into JSON file
         """
         parsed_line = shlex.split(*line)
-        name_id = parsed_line[0] + "." +parsed_line[1]
+        name_id = parsed_line[0] + "." + parsed_line[1]
         if len(parsed_line) == 0:
             print("** class name missing **")
         elif parsed_line[0] not in classes:
@@ -127,10 +126,16 @@ class HBNBCommand(cmd.Cmd):
         elif len(parsed_line) == 3:
             print("** value missing **")
         else:
-            obj = models.storage.all()[name_id]
             name_attrib = parsed_line[2]
             value_attrib = parsed_line[3]
-            setattr(obj, name_attrib, value_attrib)
+            for key, value in models.storage.all().items():
+                if key == name_id:
+                    if type(value_attrib) is int:
+                        setattr(value, name_attrib, int(value_attrib))
+                    elif type(value_attrib) is float:
+                        setattr(value, name_attrib, int(value_attrib))
+                    else:
+                        setattr(value, name_attrib, value_attrib)
             models.storage.save()
 
 if __name__ == '__main__':
