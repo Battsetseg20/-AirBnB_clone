@@ -114,14 +114,14 @@ class HBNBCommand(cmd.Cmd):
         parsed_line = shlex.split(*line)
         if len(parsed_line) == 0:
             print("** class name missing **")
+        elif parsed_line[0] not in classes:
+            print("** class doesn't exist **")
         elif len(parsed_line) == 1:
             print("** instance id missing **")
         elif len(parsed_line) == 2:
             print("** attribute name missing **")
         elif len(parsed_line) == 3:
             print("** value missing **")
-        elif parsed_line[0] not in classes:
-            print("** class doesn't exist **")
         else:
             name_id = parsed_line[0] + "." + parsed_line[1]
             obj = models.storage.all()[name_id]
