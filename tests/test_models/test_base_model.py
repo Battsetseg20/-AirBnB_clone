@@ -15,6 +15,7 @@ class TestBaseModel(unittest.TestCase):
     def setUp(self):
         """Sets up new BaseModel instance for testing"""
         self.base1 = BaseModel()
+        self.base2 = BaseModel()
 
     def test_intance(self):
         """Checks if class is instantiated"""
@@ -26,6 +27,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_uuid(self):
         """Test for id"""
+        self.assertNotEqual(self.base1.id, self.base2.id)
         self.assertTrue(hasattr(self.base1, "id"))
         self.assertEqual(type(self.base1.id), str)
 
