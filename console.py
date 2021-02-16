@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         Syntax:create <class>
         """
         parsed_line = shlex.split(*line)
-        if not parsed_line:
+        if parsed_line is None or len(parsed_line) == 0:
             print("** class name missing **")
         elif parsed_line[0] in classes:
             new_instance = classes[parsed_line[0]]()
