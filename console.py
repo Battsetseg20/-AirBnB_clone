@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         Saves the change into JSON file
         """
         parsed_line = shlex.split(*line)
-        if len(parsed_line) == 0:
+        if not parsed_line:
             print("** class name missing **")
         elif parsed_line[0] not in classes:
             print("** class doesn't exist **")
