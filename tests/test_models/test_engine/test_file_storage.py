@@ -3,14 +3,16 @@
 import unittest
 import models
 
+FileStorage = models.engine.file_storage.FileStorage
+BaseModel = models.base_model.BaseModel
 
 class TestFileStorage(unittest.TestCase):
     """Tests for the functionality"""
     def setUp(self):
-        """Method setus up for testing"""
-        pass
+        """Sets up the objects for testing"""
+        self.storage = FileStorage()
+        self.base1 = BaseModel()
 
-
-
-if __name__ == '__main__':
-    unittest.main
+    def test_intantiation(self):
+        """Checks for the storage instance"""
+        self.assertIsInstance(self.storage, FileStorage)
