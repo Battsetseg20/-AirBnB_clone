@@ -49,12 +49,18 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """Test for reload method"""
+        old_dict = models.storage.all()
+        models.storage.reload()
+        new_dict = models.storage.all()
+        self.assertEqual(old_dict.keys(), new_dict.keys())
+
         bm_test = BaseModel()
         models.storage.new(bm_test)
-        models.storage.save()
-        models.storage.reload()
         name_id = 'BaseModel.' + bm_test.id
-        self.assertIn(name_id, FileStorage._FileStorage__objects)
+        bm_test.save()
+        models.storage.reload()
+        new = models.storage.all()
+        self.assertIn(name_id, new)
 
 if __name__ == "__main__":
     unittest.main()
