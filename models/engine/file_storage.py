@@ -18,10 +18,8 @@ from models.review import Review
 class FileStorage():
     """
     Initializing all attributes and methods:
-
     __file_path : str - path to JSON file
     __objects : dict - empty but will store all objects by <class>.id
-
     """
     __file_path = "file.json"
     __objects = {}
@@ -38,7 +36,7 @@ class FileStorage():
     def save(self):
         """Serializes __objects to JSON file (path:__file_path)"""
         new_dict = {}
-        for key, value _in self.__objects.items():
+        for key, value in self.__objects.items():
             new_dict[key] = value.to_dict()
         with open(self.__file_path, 'w') as f:
             json.dump(new_dict, f)
