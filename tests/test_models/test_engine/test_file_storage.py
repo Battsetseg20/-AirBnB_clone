@@ -4,6 +4,7 @@ import unittest
 import models
 import json
 import os
+from datetime import datetime
 
 FileStorage = models.engine.file_storage.FileStorage
 BaseModel = models.base_model.BaseModel
@@ -42,16 +43,16 @@ class TestFileStorage(unittest.TestCase):
     def test_save(self):
         """Test for save method"""
         bm_test = BaseModel()
+        time_before = bm_test.updated_at
         models.storage.new(bm_test)
-        models.storage.save()
+        bm_test.save()
+        time_after = bm_test.updated_at
         save_text = ""
         with open('file.json', 'r') as f:
             save_text = f.read()
             name_id = 'BaseModel.' + bm_test.id
             self.assertIn(name_id, save_text)
-
-        with self.assertRaises(TypeError):
-            models.storage.save(None)
+        self.assertNotEqual(time_before, time_after)
 
     def test_reload(self):
         """Test for reload method"""
