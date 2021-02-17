@@ -2,6 +2,8 @@
 """Unittests for the file_storage module"""
 import unittest
 import models
+import json
+import os
 
 FileStorage = models.engine.file_storage.FileStorage
 BaseModel = models.base_model.BaseModel
@@ -21,6 +23,7 @@ class TestFileStorage(unittest.TestCase):
     def test_attributes(self):
         """Checks for attributes"""
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
+        self.assertEqual(self.storage._FileStorage__file_path, 'file.json')
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
     def test_all(self):
@@ -46,6 +49,9 @@ class TestFileStorage(unittest.TestCase):
             save_text = f.read()
             name_id = 'BaseModel.' + bm_test.id
             self.assertIn(name_id, save_text)
+
+        with self.assertRaises(TypeError):
+            models.storage.save(None)
 
     def test_reload(self):
         """Test for reload method"""
