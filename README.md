@@ -10,12 +10,12 @@ The AirBnB Console project is the first step towards the implementation of a sim
 - **models** directory will contain all classes used for the entire project. A class, called “model” in a OOP project is the representation of an object/instance.
 - **tests** directory will contain all unit tests.
 - **console.py** file is the entry point of our command interpreter.
-- **models/base_model.py** file is the base class of all our models. It contains common elements:
+- **models/base_model.py** file is the base class of all our models.
 - **models/engine** directory will contain all storage classes (using the same prototype). For the moment we will have only one: **file_storage.py**.
 
 
 ### Console
-** What's the console and how to use it?
+**What's the console and how to use it?**
 Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
 
 - Create a new object (ex: a new User or a new Place)
@@ -36,6 +36,28 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb)quit
 $
 ```
+Or, use echo to run it in non-interactive mode.
+```
+$ echo "help" | ./console.py
+(hbnb)
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+```
+
+### Supported commands
+
+| Command  | Syntax                        |Description                                    |  
+|:-------: | ------------------------------|----------------|  
+| `help`   |`help`                         |to get help about other commands.             |  
+| `quit`   |`quit`                         |or `EOF` (end of file) to terminate session.   | 
+| `create` |`create <class>`               |creates an object |
+|`show`    |`show <class name> <id>`       |prints the string representation of an object|
+| `destroy`|`destroy <class> <id>`         |deletes an object|
+|`all`     |`all <class>` OR `all`         |shows all representations of objects|
+|`update`  |`update <class> <id> <attribute> "<value>"`	      |updates attributes of object|
+
+
 ## Example
 **Start the console**
 ```
@@ -43,14 +65,14 @@ $ ./console.py
 (hbnb)
 ```
 
-**Creating a new instance**
+**To create new instance**
 ```
 (hbnb) create
 ** class name missing **
 (hbnb) create BaseModel
 f107c026-28e6-4f79-80fd-12e1d58221ca
 ```
-**Show the instance**
+**To show the instance**
 ```
 (hbnb) show
 ** class name missing **
@@ -59,10 +81,12 @@ f107c026-28e6-4f79-80fd-12e1d58221ca
 (hbnb) show BaseModel f107c026-28e6-4f79-80fd-12e1d58221ca
 [BaseModel] (f107c026-28e6-4f79-80fd-12e1d58221ca) {'id': 'f107c026-28e6-4f79-80fd-12e1d58221ca', 'created_at': datetime.datetime(2021, 2, 17, 19, 40, 29, 391412), 'updated_at': datetime.datetime(2021, 2, 17, 19, 40, 29, 391412)}
 ```
-**Delete the instnace**
+**To delete the instance**
 ```
 (hbnb) destroy BaseModel f107c026-28e6-4f79-80fd-12e1d58221ca
 (hbnb) show BaseModel f107c026-28e6-4f79-80fd-12e1d58221ca
 ** no instance found **
 ```
 
+**Holberton School**
+Battsetseg Yondongombo Cohort 13
