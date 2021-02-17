@@ -62,5 +62,18 @@ class TestFileStorage(unittest.TestCase):
         new = models.storage.all()
         self.assertIn(name_id, new)
 
+        def test_save_reload(self):
+        """Tests the save and reload functions"""
+        if os.path.isfile('file.json'):
+            os.rename("file.json", "file.jsonSAVE")
+        m1 = BaseModel()
+        m1.save()
+        storage.reload()
+        ld = storage.all()
+        self.assertDictEqual(ld["BaseModel." + m1.id].to_dict(), m1.to_dict())
+        os.remove("file.json")
+        if os.path.isfile('file.jsonSAVE'):
+            os.rename("file.jsonSAVE", "file.json")
+
 if __name__ == "__main__":
     unittest.main()
