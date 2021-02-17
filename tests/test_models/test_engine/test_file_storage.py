@@ -38,11 +38,23 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """Test for save method"""
-        bm = BaseModel()
-        models.storage.new(bm)
+        bm_test = BaseModel()
+        models.storage.new(bm_test)
         models.storage.save()
         save_text = ""
         with open('file.json', 'r') as f:
             save_text = f.read()
-            name_id = 'BaseModel.' + bm.id
+            name_id = 'BaseModel.' + bm_test.id
             self.assertIn(name_id, save_text)
+
+    def test_reload(self):
+        """Test for reload method"""
+        bm_test = BaseModel()
+        models.storage.new(bm_test)
+        models.storage.save()
+        models.storage.reload()
+        name_id = 'BaseModel.' + bm_test.id
+        self.assertIn(name_id, FileStorage._FileStorage__objects)
+
+if __name__ == "__main__":
+    unittest.main()
