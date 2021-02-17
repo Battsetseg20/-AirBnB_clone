@@ -6,6 +6,7 @@ import models
 FileStorage = models.engine.file_storage.FileStorage
 BaseModel = models.base_model.BaseModel
 
+
 class TestFileStorage(unittest.TestCase):
     """Tests for the functionality"""
     def setUp(self):
@@ -27,4 +28,21 @@ class TestFileStorage(unittest.TestCase):
         test_dict = models.storage.all()
         self.assertEqual(dict, type(test_dict))
         self.assertIs(test_dict, FileStorage._FileStorage__objects)
-        
+
+    def test_new(self):
+        """Test for the method new"""
+        name_id = "{}.{}".format(type(self.base1).__name__, self.base1.id)
+        test_obj = models.storage.all()
+        self.assertIn(name_id, test_obj)
+        self.assertEqual(self.base1, test_obj[name_id])
+
+    def test_save(self):
+        """Test for save method"""
+        bm = BaseModel()
+        models.storage.new(bm)
+        models.storage.save()
+        save_text = ""
+        with open('file.json', 'r') as f:
+            save_text = f.read()
+            name_id = 'BaseModel.' + bm.id
+            self.assertIn(name_id, save_text)
