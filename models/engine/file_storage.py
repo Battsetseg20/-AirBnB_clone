@@ -47,7 +47,7 @@ class FileStorage():
         """Deserializes the JSON file to __objects
         if __file_path doesn't exist, nothing is done
         """
-        try;
+        try:
             with open(self.__file_path, 'r') as f:
                 for key, value in (json.load(f)).items():
                     value = eval(value["__class__"])(**value)
