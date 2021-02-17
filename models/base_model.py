@@ -23,7 +23,7 @@ class BaseModel():
         """
         self.id = str(uuid.uuid4())
         self.created_at = self.updated_at = datetime.now()
-        if kwargs:
+        if kwargs and kwargs != {}:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
                     self.__dict__[key] = datetime.strptime(
