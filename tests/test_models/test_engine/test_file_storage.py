@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Unittests for the file_storage module"""
 import unittest
-from models.engine.file_storate import FileStorage
+import models
 
 
 class TestFileStorage(unittest.TestCase):
@@ -9,3 +9,8 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """Method setus up for testing"""
         pass
+
+
+
+if __name__ == '__main__':
+    unittest.main
