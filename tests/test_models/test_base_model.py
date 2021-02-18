@@ -50,8 +50,15 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         """test for save method"""
         self.assertTrue(hasattr(BaseModel, 'save'))
+
+        old_created_at = self.base1.created_at
+        old_updated_at = self.base1.updated_at
         self.base1.save()
+        new_created_at = self.base1.created_at
+        new_updated_at = self.base1.updated_at
         self.assertNotEqual(self.base1.updated_at, self.base1.created_at)
+        self.assertNotEqual(old_updated_at, new_updated_at)
+        self.assertEqual(old_created_at, new_created_at)
 
     def test_to_dict(self):
         """Test for to_dict method"""
