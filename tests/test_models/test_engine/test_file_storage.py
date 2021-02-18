@@ -50,6 +50,10 @@ class TestFileStorage(unittest.TestCase):
             name_id = 'BaseModel.' + bm_test.id
             self.assertIn(name_id, save_text)
 
+    def test_save_with_arg(self):
+        with self.assertRaises(TypeError):
+            self.storage.save(None)
+
     def test_reload(self):
         """Test for reload method"""
         old_dict = self.storage.all()
