@@ -52,15 +52,10 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """Test for reload method"""
-        bm_test = BaseModel()
-        bm_file = FileStorage()
-        old_dict = bm_file.all()
-        bm_test.save()
-        name_id = 'BaseMode.' + bm_test.id
-        bm_file.reload()
-        new_dict = bm_file.all()
+        old_dict = self.storage.all()
+        self.storage.reload()
+        new_dict = self.storage.all()
         self.assertEqual(old_dict.keys(), new_dict.keys())
-
 
 if __name__ == "__main__":
     unittest.main()
