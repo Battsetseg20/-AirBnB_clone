@@ -43,20 +43,18 @@ class TestFileStorage(unittest.TestCase):
     def test_save(self):
         """Test for save method"""
         bm_test = BaseModel()
+        old_created_at = bm_test.created_at
+        old_updated_at = bm_test.updated_at
         bm_test.save()
+        new_created_at = bm_test.created_at
+        new_updated_at = bm_test.updated_at
         save_text = ""
         with open('file.json', 'r') as f:
             save_text = f.read()
             name_id = 'BaseModel.' + bm_test.id
             self.assertIn(name_id, save_text)
-
-    def test_save_update(self):
-        """test for updated at
-        """
-        time1 = self.base1.updated_at
-        self.base1.save()
-        time2 = self.base1.updated_at
-        self.assertFalse(time1 == time2)
+        self.assertNotEqual(old_updated_at, new_updated_at)
+        self.assertEqual(old_created_at, new_created_at)
 
     def test_reload(self):
         """Test for reload method"""
@@ -64,9 +62,6 @@ class TestFileStorage(unittest.TestCase):
         models.storage.reload()
         new_dict = models.storage.all()
         self.assertEqual(old_dict.keys(), new_dict.keys())
-
-        self.assertIs(self.storage.reload(), None)
-
 
 if __name__ == "__main__":
     unittest.main()
