@@ -50,11 +50,9 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         """test for save method"""
         self.assertTrue(hasattr(BaseModel, 'save'))
-        time1 = self.base1.updated_at
         self.base1.save()
-        time2 = self.base1.updated_at
         self.assertNotEqual(self.base1.updated_at, self.base1.created_at)
-        self.assertFalse(time1 == time2)
+        self.assertEqual(type(self.base1.updated_at), type(datetime.now()))
 
     def test_to_dict(self):
         """Test for to_dict method"""
