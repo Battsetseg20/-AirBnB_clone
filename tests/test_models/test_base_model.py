@@ -52,7 +52,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, 'save'))
         self.base1.save()
         self.assertNotEqual(self.base1.updated_at, self.base1.created_at)
-        self.assertEqual(type(self.base1.updated_at), type(datetime.now()))
+        self.assertLessEqual(self.base1.updated_at, datetime.now())
 
     def test_to_dict(self):
         """Test for to_dict method"""
