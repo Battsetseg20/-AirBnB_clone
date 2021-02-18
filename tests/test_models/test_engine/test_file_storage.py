@@ -40,8 +40,8 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(name_id, test_obj)
         self.assertEqual(self.base1, test_obj[name_id])
 
-        """    def test_save(self):
-        Test for save method
+    def test_save(self):
+        """Test for save method"""
         bm_test = BaseModel()
         bm_test.save()
         save_text = ""
@@ -51,31 +51,11 @@ class TestFileStorage(unittest.TestCase):
             self.assertIn(name_id, save_text)
 
     def test_reload(self):
-        Test for reload method
-        if os.path.isfile('file.json'):
-            os.rename('file.json', 'tmp_file')
-        bm_test = BaseModel()
-        bm_test.save()
+        """Test for reload method"""
         old_dict = self.storage.all()
         self.storage.reload()
         new_dict = self.storage.all()
         self.assertEqual(old_dict.keys(), new_dict.keys())
-        os.remove('file.json')
-        if os.path.isfile('tmp_file'):
-            os.rename('tmp_file', 'file.json')"""
-
-    def test_save_reload(self):
-        """Tests the save and reload functions"""
-        if os.path.isfile('file.json'):
-            os.rename("file.json", "file.jsonSAVE")
-        m1 = BaseModel()
-        m1.save()
-        models.storage.reload()
-        ld = models.storage.all()
-        self.assertDictEqual(ld["BaseModel." + m1.id].to_dict(), m1.to_dict())
-        os.remove("file.json")
-        if os.path.isfile('file.jsonSAVE'):
-            os.rename("file.jsonSAVE", "file.json")
 
 if __name__ == "__main__":
     unittest.main()
