@@ -57,5 +57,6 @@ class TestFileStorage(unittest.TestCase):
         new_dict = self.storage.all()
         self.assertEqual(old_dict.keys(), new_dict.keys())
 
+
 if __name__ == "__main__":
     unittest.main()
