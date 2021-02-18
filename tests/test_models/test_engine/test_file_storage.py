@@ -52,18 +52,29 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """Test for reload method"""
+        if os.path.isfile('file.json'):
+            os.rename('file.json', 'tmp_file')
+        bm_test = BaseModel()
+        bm_test.save()
         old_dict = self.storage.all()
         self.storage.reload()
         new_dict = self.storage.all()
         self.assertEqual(old_dict.keys(), new_dict.keys())
+        os.remove('file.json')
+        if os.path.isfile('tmp_file'):
+            os.rename('tmp_file', 'file.json')
 
-    def test_reload_no_file(self):
-        self.assertRaises(FileNotFoundError, models.storage.reload())
-
-    def test_reload_with_arg(self):
-        with self.assertRaises(TypeError):
-            models.storage.reload(None)
-
+    def test_save_and_load(self):
+        os.remove("file.json")
+        with self.assertRaises(Exception):
+            with open("file.json", "r") as f:
+                self.assertEqual(0, len(f.read()))
+        my_model = BaseModel()
+        my_model.name = "Holberton"
+        my_model.my_number = 89
+        my_model.save()
+        with open("file.json", "r") as f:
+            self.assertNotEqual(0, len(f.read()))
 
 if __name__ == "__main__":
     unittest.main()
