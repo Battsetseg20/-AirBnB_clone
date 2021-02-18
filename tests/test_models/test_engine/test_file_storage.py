@@ -64,17 +64,18 @@ class TestFileStorage(unittest.TestCase):
         if os.path.isfile('tmp_file'):
             os.rename('tmp_file', 'file.json')
 
-    def test_save_and_load(self):
+    def test_save_reload(self):
+        """Tests the save and reload functions"""
+        if os.path.isfile('file.json'):
+            os.rename("file.json", "file.jsonSAVE")
+        m1 = BaseModel()
+        m1.save()
+        models.storage.reload()
+        ld = models.storage.all()
+        self.assertDictEqual(ld["BaseModel." + m1.id].to_dict(), m1.to_dict())
         os.remove("file.json")
-        with self.assertRaises(Exception):
-            with open("file.json", "r") as f:
-                self.assertEqual(0, len(f.read()))
-        my_model = BaseModel()
-        my_model.name = "Holberton"
-        my_model.my_number = 89
-        my_model.save()
-        with open("file.json", "r") as f:
-            self.assertNotEqual(0, len(f.read()))
+        if os.path.isfile('file.jsonSAVE'):
+            os.rename("file.jsonSAVE", "file.json")
 
 if __name__ == "__main__":
     unittest.main()
