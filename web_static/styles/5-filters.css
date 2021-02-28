@@ -1,4 +1,4 @@
-/* CSS filter style for (6-9)index.html */
+/* CSS filter style for 5-index.html */
 .container {
   display: flex;
   max-width: 1000px;
@@ -62,35 +62,3 @@ button:hover {
   margin-left: 50px;
 }
 
-.popover {
-  position: relative;
-  display: none;
-  background-color: #FAFAFA;
-  border: 1px #DDDDDD solid;
- 
-}
-
-ul, li {
-  list-style-type: none;
-}
-
-.popover h2 {
-  font-size: 20px;
-  margin: 0;
-  margin-left: -10px;
-  padding-top: 20px;
-}
-.popover-state-items {
-padding: 8px ;
-line-height: 20px;
-}
-
-.popover-amenities-items {
-  padding: 20px 30px 20px 50px;
-  line-height: 25px;
-}
-
-.locations:hover .popover ,
-.amenities:hover .popover {
-  display: block;
-}
