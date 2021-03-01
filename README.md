@@ -4,7 +4,7 @@
 
 <h1 align="center">AirBnB clone project</h1>
 
-## AirBnB Console
+## 1. AirBnB Console
 
 The AirBnB Console project is the first step towards the implementation of a simple copy of the AirBnB website. Here we will create our data model, manage the object via command interpreter, store and persis objects to a file. (JSON file)
 
@@ -90,7 +90,7 @@ f107c026-28e6-4f79-80fd-12e1d58221ca
 ** no instance found **
 ```
 
-## AirBnB - Web Static
+## 2. AirBnB - Web Static
 Now that you have a command interpreter for managing your AirBnB objects, it’s time to make them alive!
 
 Before developing a big and complex web application, we will build the front end step-by-step.
