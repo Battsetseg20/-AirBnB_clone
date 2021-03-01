@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> AirBnB clone </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/102-common.css">
+    <link rel="stylesheet" href="styles/102-header.css">
+    <link rel="stylesheet" href="styles/102-footer.css">
+    <link rel="stylesheet" href="styles/102-filters.css">
+    <link rel="stylesheet" href="styles/102-places.css">
+    <link rel="icon" href="images/icon.png">
+</head>
+    
+<body>
+    <header>
+    <!-- Logo -->
+    <div class="logo"> </div>   
+    </header>
+    
+    <!-- Search container -->
+    <div class="container">
+        <!-- Section-1 : Search filters-->
+        <section class="filters">
+            <!-- Subfilters: Search button -->
+            <button type="button">Search</button>
+            <!-- Subfilters: Locations and Amenities -->
+            <div class="locations">
+                <h3 class = "title-filters"> States </h3>
+                    <h4 class = "subtitle-filters"> California, Arizona...</h4>
+
+                <!-- Subcategory: Locations -->
+                <ul class="popover">
+                    <li> <h2>Arizona:</h2>
+                        <ul class="popover-state-items">
+                        <li> Page</li>
+                        <li> Page2</li>
+                        <li> </li>
+                        </ul>
+                    </li>
+                    <li> <h2>California:</h2>
+                        <ul class="popover-state-items">
+                        <li> San Francisco</li>
+                        <li> Los Altos</li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="amenities">
+                <h3 class = "title-filters"> Amenities </h3>
+                    <h4 class = "subtitle-filters"> Internet, Kitchen...</h4>
+                
+                <!-- Subcategory: Amenities -->
+                <ul class="popover popover-amenities-items">
+                    <li> Internet</li>
+                    <li> Tv</li>
+                    <li> Kitchen</li>
+                    <li> Iron</li>
+                </ul>
+            </div>
+        </section>
+    
+        <!-- Section-2 : Places-->
+        <section class="places">
+            <h1> Places </h1>
+                <article> <h2> My home </h2> 
+                    <div class="price_by_night"> <p>$80</p> </div>
+                    <div class="information">
+                        <div class="max_guest"><p>2 Guests</p></div>
+                        <div class="number_rooms"><p>2 Bedrooms</p></div>
+                        <div class="number_bathrooms"><p>1 Bathroom</p></div>
+                    </div>
+                    <div class="user"><p><strong>Owner:</strong> John Lennon</p></div>
+                    <div class="description"><p>This is a lovely 1 bedroom and 1 bathroom apartment that can accommodate 2 people. It locates at the center of Shangai and next to subway line 1, 1 stop to People Square, 2 stops to Bund, 3 stops to Jingan Temple.</p> </div>
+                
+                    <div class="amenities"><p> <h4>Amenities</h4> </p>
+                        <div class="tv"><p>TV</p></div>
+                        <div class="wifi"><p>Wifi</p></div>
+                        <div class="pets"><p>Pets Friendly</p></div>
+                    </div> 
+                      
+                    <div class="reviews"><p> <h4>2 Reviews</h4> </p>
+                        <div class="review-title"><p><strong>From Bob Dylan the 27th January 2017 </strong></p>
+                            <p> Runshi is an epic host. Nothing more I can say. 5 star.</p>
+                        </div>
+                         <div class="review-title"><p><strong>From Connor the 4th January 2017</strong></p>
+                            <p> Highly recommended!</p>
+                        </div>
+                    </div> 
+                
+                </article>
+
+                <article> <h2> Tiny house </h2> 
+                    <div class="price_by_night"> <p>$65</p> </div>
+                    <div class="information">
+                        <div class="max_guest"><p>4 Guests</p></div>
+                        <div class="number_rooms"><p>2 Bedrooms</p></div>
+                        <div class="number_bathrooms"><p>1 Bathroom</p></div>
+                    </div>
+                    <div class="user"><p><strong>Owner:</strong> Adrienne</p></div>
+                    <div class="description"><p>Our place is private, affordable stand-alone guest house centrally located just minutes to French Quarters, downtown, the Fair Grounds(Jazz Fest) and city Park. The guest house is a quaint, 400 square ft. with a full bath, mini kitchen, & living room. The extra ceilings make the home feel more spacious. The sofa converts to a bed also. We have a hand made counter area that adds character to the room and a great porch/deck to relax on and have a glass of Merlot</p> </div>
+                    
+                    <div class="amenities"><p> <h4>Amenities</h4> </p>
+                        <div class="pets"><p>Pets Friendly</p></div>
+                    </div> 
+                    
+                    <div class="reviews"><p> <h4>1 Review</h4> </p>
+                            <div class="review-title"><p><strong>From max the 17th January 2017 </strong></p>
+                              <p> Fantastic place. It was clean. Adrienne was great (even though we did not meet in person) and everython went super smooth. Location is also great if you like running and something a bit more quiet. I would suggest a car or take into consideration that you might have to take Uber into the city from the location. Overall, would recommend the place anytime.</p>
+                            </div>
+                    </div>
+                
+                </article>
+
+                <article> <h2> A suite </h2> 
+                    <div class="price_by_night"> <p>$180</p> </div>
+                    <div class="information">
+                        <div class="max_guest"> <p>4 Guests</p></div>
+                        <div class="number_rooms"> <p>2 Bedrooms</p></div>
+                        <div class="number_bathrooms"><p>1 Bathroom</p></div>
+                    </div>
+                    <div class="user"><p><strong>Owner:</strong> Tsetseg</p></div>
+                    <div class="description"><p>One of the hippest districts in UB. Fashion-forward designers, artisan cafes & hipster bars - all within walking distance from our apartment. Centrally located in the heart of Sukhbaatar district. Three min walk to Sukhbaatar square. Modern. Comfortable. Unbeatable value.</p> </div>
+
+                    <div class="amenities"><p> <h4>Amenities</h4> </p>
+                        <div class="tv"><p>TV</p></div>
+                        <div class="wifi"><p>Wifi</p></div>
+                        <div class="pets"><p>Pets Friendly</p></div>
+                    </div> 
+                        
+                    <div class="reviews"><p> <h4>1 Review</h4> </p>
+                        <div class="review-title"><p><strong>From VCFR the 27th February 2020 </strong></p>
+                            <p> "LET US IN OR GIVE US OUR MONEY BACK!"</p></div>
+                    </div>
+
+                </article>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer> Holberton School</footer>
+</body>
+</html>
