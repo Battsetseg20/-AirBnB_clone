@@ -4,6 +4,8 @@
 
 # AirBnB_clone
 
+## AirBnB Console
+
 The AirBnB Console project is the first step towards the implementation of a simple copy of the AirBnB website. Here we will create our data model, manage the object via command interpreter, store and persis objects to a file. (JSON file)
 
 ### Files and Directories
@@ -87,6 +89,22 @@ f107c026-28e6-4f79-80fd-12e1d58221ca
 (hbnb) show BaseModel f107c026-28e6-4f79-80fd-12e1d58221ca
 ** no instance found **
 ```
+
+## AirBnB - Web Static
+Now that you have a command interpreter for managing your AirBnB objects, it’s time to make them alive!
+
+Before developing a big and complex web application, we will build the front end step-by-step.
+
+The first step is to “design” / “sketch” / “prototype” each element:
+
+- Create simple HTML static pages
+- Style guide
+- Fake contents
+- No Javascript
+- No data loaded from anything
+During this project, you will learn how to manipulate HTML and CSS languages. HTML is the structure of your page, it should be the first thing to write. CSS is the styling of your page, the design. I really encourage you to fix your HTML part before starting the styling. Indeed, without any structure, you can’t apply any design.
+
+
 
 **Holberton School**
 Battsetseg Yondongombo Cohort 13
