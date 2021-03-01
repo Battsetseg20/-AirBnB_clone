@@ -2,7 +2,7 @@
   <img width="409" height="128" src="https://www.holbertonschool.com/holberton-logo.png">
 </p>
 
-# AirBnB_clone
+<h1 align="center">AirBnB clone project</h1>
 
 ## AirBnB Console
 
