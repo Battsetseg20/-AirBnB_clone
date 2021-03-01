@@ -106,7 +106,7 @@ During this project, you will learn how to manipulate HTML and CSS languages. HT
 
 ### Example
 <p align="center">
-  <img width="902" height="614" src="https://github.com/Battsetseg20/AirBnB_clone/blob/main/web_static/images/Output.png">
+  <img width="698" height="534" src="https://github.com/Battsetseg20/AirBnB_clone/blob/main/web_static/images/Output-full_detail.png">
 </p>
 
 
