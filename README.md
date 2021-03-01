@@ -104,6 +104,11 @@ The first step is to “design” / “sketch” / “prototype” each element:
 - No data loaded from anything
 During this project, you will learn how to manipulate HTML and CSS languages. HTML is the structure of your page, it should be the first thing to write. CSS is the styling of your page, the design. I really encourage you to fix your HTML part before starting the styling. Indeed, without any structure, you can’t apply any design.
 
+### Example
+<p align="center">
+  <img width="409" height="128" src="https://github.com/Battsetseg20/AirBnB_clone/blob/main/web_static/images/Output.png">
+</p>
+
 
 
 **Holberton School**
